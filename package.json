@@ -19,8 +19,8 @@
   "browser": {
     "./src/loader/NodeDictionaryLoader.js": "./src/loader/BrowserDictionaryLoader.js"
   },
-  "author": "Takuya Asano <takuya.a@gmail.com>",
-  "emal": "takuya.a@gmail.com",
+  "author": "Justin Silvestre <justinsilvestre@gmail.com>",
+  "emal": "justinsilvestre@gmail.com",
   "homepage": "https://github.com/takuyaa/kuromoji.js",
   "repository": {
     "type": "git",
@@ -99,8 +99,7 @@
   "dependencies": {
     "async": "^2.0.1",
     "doublearray": "0.0.2",
-    "tslib": "1.9.3",
-    "zlibjs": "^0.3.1"
+    "tslib": "1.9.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",

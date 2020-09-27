@@ -16,19 +16,23 @@
  */
 
 import { Tokenizer } from './tokenizer'
-const DictionaryLoader = require('./loader/NodeDictionaryLoader')
+const DictionaryLoader = require('./loader/DictionaryLoader')
+const NodeDictionaryLoader = require('./loader/NodeDictionaryLoader')
 
 /**
  * TokenizerBuilder create Tokenizer instance
  */
 export class TokenizerBuilder {
   public readonly dic_path: string
+  public readonly DictionaryLoaderClass: typeof DictionaryLoader
 
   /**
    * Creates an instance of TokenizerBuilder
    *
    * @param option JSON object which have key-value pairs settings
    * @param option.dicPath Dictionary directory path (or URL using in browser)
+   * @param options.dicLoader Dictionary loader class--defaults to
+   * NodeDictionaryLoader or BrowserDictionaryLoader based on environment
    */
   constructor(option: any) {
     if (option.dicPath == null) {
@@ -36,6 +40,7 @@ export class TokenizerBuilder {
     } else {
       this.dic_path = option.dicPath
     }
+    this.DictionaryLoaderClass = option.dicLoader || NodeDictionaryLoader
   }
 
   /**
@@ -44,7 +49,7 @@ export class TokenizerBuilder {
    * @param callback Callback function that called when build is done
    */
   build(callback: (err: any, tokenizer: any) => void) {
-    const loader = new DictionaryLoader(this.dic_path)
+    const loader = new this.DictionaryLoaderClass(this.dic_path)
     loader.load((err: any, dic: any) => {
       callback(err, new Tokenizer(dic))
     })

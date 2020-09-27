@@ -22,7 +22,7 @@ Directory tree is as follows:
     build/
       kuromoji.js -- JavaScript file for browser (Browserified)
     demo/         -- Demo
-    dict/         -- Dictionaries for tokenizer (gzipped)
+    dict/         -- Dictionaries for tokenizer (uncompressed)
     example/      -- Examples to use in Node.js
     src/          -- JavaScript source
     test/         -- Unit test
